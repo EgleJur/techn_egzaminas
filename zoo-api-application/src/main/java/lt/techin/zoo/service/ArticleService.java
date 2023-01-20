@@ -33,7 +33,13 @@ public class ArticleService {
 
     public Article create(Article article) {
 
-        return articleRepository.save(article);
+       var test = articleRepository.findAll();
+if (test.contains(article.getName()))
+{return articleRepository.save(article);}
+else{
+    throw new ZooValidationException("exist",
+            "name", "message found", article.getName());
+}
     }
 
 
