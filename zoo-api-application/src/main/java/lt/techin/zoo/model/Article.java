@@ -67,26 +67,5 @@ public class Article {
         this.createdDate = createdDate;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Article article = (Article) o;
-        return Objects.equals(id, article.id) && Objects.equals(name, article.name) && Objects.equals(description, article.description) && Objects.equals(createdDate, article.createdDate);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, description, createdDate);
-    }
-
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", createdDate=" + createdDate +
-                '}';
-    }
 }

@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public class CommentDto {
 
-    private Long id;
     private String author;
 
     private String text;
@@ -18,13 +17,13 @@ public class CommentDto {
     public CommentDto() {
     }
 
-    public Long getId() {
-        return id;
+    public CommentDto( String author, String text, Article article) {
+
+        this.author = author;
+        this.text = text;
+        this.article = article;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getAuthor() {
         return author;
@@ -49,16 +48,4 @@ public class CommentDto {
         this.article = article;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CommentDto that = (CommentDto) o;
-        return Objects.equals(id, that.id) && Objects.equals(author, that.author) && Objects.equals(text, that.text) && Objects.equals(article, that.article);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, author, text, article);
-    }
 }

@@ -28,14 +28,14 @@ public class CommentService {
         return commentRepository.findAll();
     }
 
-//    public Optional<Comment> getById(Long id) {
-//        return commentRepository.findById(id);
-//    }
+    public Optional<Comment> getById(Long id) {
+        return commentRepository.findById(id);
+    }
 //
 //
-//    public Comment create(Comment comment) {
-//        return commentRepository.save(comment);
-//    }
+    public Comment create(Comment comment) {
+        return commentRepository.save(comment);
+    }
 //
 //    public Comment update(Long id, Comment comment) {
 //        var existingAnimal = commentRepository.findById(id)
@@ -54,14 +54,14 @@ public class CommentService {
 //        return commentRepository.save(comment);
 //    }
 //
-//    public boolean deleteById(Long id) {
-//        try {
-//            commentRepository.deleteById(id);
-//            return true;
-//        } catch (EmptyResultDataAccessException exception) {
-//            return false;
-//        }
-//    }
+    public boolean deleteById(Long id) {
+        try {
+            commentRepository.deleteById(id);
+            return true;
+        } catch (EmptyResultDataAccessException exception) {
+            return false;
+        }
+    }
 //
 //    public List<Comment> findMarkedAnimals() {
 //        return commentRepository.findAllMarkedAnimals();

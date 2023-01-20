@@ -36,22 +36,7 @@ public class ArticleService {
         return articleRepository.save(article);
     }
 
-    public Article update(Long id, Article article) {
-        var existingRoom = articleRepository.findById(id)
-                .orElseThrow(() -> new ZooValidationException("Room does not exist",
-                        "id", "Room not found", id.toString()));
 
-        existingRoom.setName(article.getName());
-        existingRoom.setDescription(article.getDescription());
-
-        return articleRepository.save(existingRoom);
-    }
-
-    public Article replace(Long id, Article article) {
-        article.setId(id);
-
-        return articleRepository.save(article);
-    }
     public boolean deleteById(Long id) {
         try {
             articleRepository.deleteById(id);
