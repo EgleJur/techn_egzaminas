@@ -1,16 +1,13 @@
 package lt.techin.zoo.model;
 
 
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
+
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-import static javax.persistence.EnumType.STRING;
 
 @Entity
 public class Article {
@@ -18,9 +15,9 @@ public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotNull
     private String name;
-
+    @NotNull
     private String description;
 
     @CreatedDate
@@ -67,5 +64,13 @@ public class Article {
         this.createdDate = createdDate;
     }
 
-
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", createdDate=" + createdDate +
+                '}';
+    }
 }

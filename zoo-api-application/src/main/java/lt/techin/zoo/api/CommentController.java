@@ -7,15 +7,16 @@ import lt.techin.zoo.model.Comment;
 import lt.techin.zoo.service.CommentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static lt.techin.zoo.api.dto.mapper.ArticleMapper.toArticle;
 import static lt.techin.zoo.api.dto.mapper.ArticleMapper.toArticleDto;
 import static lt.techin.zoo.api.dto.mapper.CommentMapper.toComment;
 import static lt.techin.zoo.api.dto.mapper.CommentMapper.toCommentDto;
@@ -34,7 +35,7 @@ public class CommentController {
         this.commentService = commentService;
     }
 
-    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @GetMapping
     @ResponseBody
     public List<CommentDto> getComments() {
         return commentService.getAll().stream()
@@ -42,12 +43,13 @@ public class CommentController {
                 .collect(toList());
     }
 
+
     @GetMapping("/{commentId}")
-    public ResponseEntity<CommentDto> getComment(@PathVariable Long commentId) {
+    public ResponseEntity<Comment> getComment(@PathVariable Long commentId) {
         var commentOptional = commentService.getById(commentId);
 
         var responseEntity = commentOptional
-                .map(comment -> ok(toCommentDto(comment)))
+                .map(comment -> ok(comment))
                 .orElseGet(() -> ResponseEntity.notFound().build());
 
         return responseEntity;
@@ -68,12 +70,10 @@ public class CommentController {
 
     }
 
-@PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-public ResponseEntity<CommentDto> createComment(@RequestBody CommentDto commentDto) {
+@PostMapping
+public ResponseEntity<CommentDto> createComment(@Valid @RequestBody CommentDto commentDto) {
     var createdComment = commentService.create(toComment(commentDto));
-
     return ok(toCommentDto(createdComment));
 }
-
 
 }

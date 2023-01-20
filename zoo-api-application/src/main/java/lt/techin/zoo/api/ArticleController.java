@@ -12,8 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
-import static lt.techin.zoo.api.dto.mapper.ArticleMapper.toArticle;
-import static lt.techin.zoo.api.dto.mapper.ArticleMapper.toArticleDto;
+import static lt.techin.zoo.api.dto.mapper.ArticleMapper.*;
 import static org.springframework.http.ResponseEntity.ok;
 
 @Controller
@@ -35,6 +34,7 @@ public class ArticleController {
                 .collect(toList());
 
     }
+
 
     @GetMapping("/{articleId}")
     public ResponseEntity<ArticleDto> getArticle(@PathVariable Long articleId) {

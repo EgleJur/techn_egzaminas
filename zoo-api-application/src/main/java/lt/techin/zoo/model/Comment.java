@@ -66,11 +66,11 @@ public class Comment {
         this.text = text;
     }
 
-    public Article getRoom() {
+    public Article getArticle() {
         return article;
     }
 
-    public void setRoom(Article article) {
+    public void setArticle(Article article) {
         this.article = article;
     }
 
@@ -93,5 +93,16 @@ public class Comment {
     @Override
     public int hashCode() {
         return Objects.hash(id, author, text, article, createdDate);
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", author='" + author + '\'' +
+                ", text='" + text + '\'' +
+                ", article=" + article +
+                ", createdDate=" + createdDate +
+                '}';
     }
 }

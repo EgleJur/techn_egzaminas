@@ -19,19 +19,8 @@ spring:
         show_sql: true
         format_sql: true
   datasource:
-    #url: jdbc:h2:tcp://localhost/~/test;SCHEMA=TECH_SCHEMA
-    #  url: jdbc:h2:mem:test;;INIT=CREATE SCHEMA IF NOT EXISTS TECH_SCHEMA
-       url: jdbc:h2:file:~/egz
-    # home local Win: jdbc:h2:~/test
-#    username: sa
-#    password:
-#    driverClassName: org.h2.Driver
-#    jpa:
-#      spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
-#      generate-ddl: false
+        url: jdbc:h2:file:~/egz
 
-#      hibernate:
-#        ddl-auto: none
   h2:
     console.enabled: true
 
@@ -42,11 +31,7 @@ logging:
       techin: DEBUG
     org:
       springframework: INFO
-#      springframework: DEBUG
-#        jdbc:
-#          core:
-#            JdbcTemplate: DEBUG
-#            StatementCreatorUtils: DEBUG
+
       hibernate:
         SQL: DEBUG
         type: TRACE
@@ -55,6 +40,4 @@ logging:
           sql:
             BasicBinder: DEBUG
 
-rooms:
-  max-rooms: 200
 

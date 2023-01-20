@@ -36,24 +36,7 @@ public class CommentService {
     public Comment create(Comment comment) {
         return commentRepository.save(comment);
     }
-//
-//    public Comment update(Long id, Comment comment) {
-//        var existingAnimal = commentRepository.findById(id)
-//                .orElseThrow(() -> new ZooValidationException("Animal does not exist",
-//                        "id", "Animal not found", id.toString()));
-//
-//        existingAnimal.setAuthor(comment.getAuthor());
-//                existingAnimal.setText(comment.getText());
-//
-//        return commentRepository.save(existingAnimal);
-//    }
-//
-//    public Comment replace(Long id, Comment comment) {
-//        comment.setId(id);
-//
-//        return commentRepository.save(comment);
-//    }
-//
+
     public boolean deleteById(Long id) {
         try {
             commentRepository.deleteById(id);
@@ -62,16 +45,7 @@ public class CommentService {
             return false;
         }
     }
-//
-//    public List<Comment> findMarkedAnimals() {
-//        return commentRepository.findAllMarkedAnimals();
-//    }
-//
-//    @Transactional
-//    public int deleteNonRegistered() {
-//        return commentRepository.deleteNonRegisteredAnimals();
-//    }
-//
+
 //    public Comment addRoomToAnimal(Long animalId, Long roomId) {
 //        // - find animal
 //        var existingAnimal = commentRepository.findById(animalId)

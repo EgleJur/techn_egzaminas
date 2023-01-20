@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class CommentDto {
 
+    private Long id;
     private String author;
 
     private String text;
@@ -17,8 +18,8 @@ public class CommentDto {
     public CommentDto() {
     }
 
-    public CommentDto( String author, String text, Article article) {
-
+    public CommentDto( Long id, String author, String text, Article article) {
+this.id = id;
         this.author = author;
         this.text = text;
         this.article = article;
@@ -27,6 +28,22 @@ public class CommentDto {
 
     public String getAuthor() {
         return author;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Article getArticle() {
+        return article;
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
     }
 
     public void setAuthor(String author) {
@@ -48,4 +65,13 @@ public class CommentDto {
         this.article = article;
     }
 
+    @Override
+    public String toString() {
+        return "CommentDto{" +
+                "id=" + id +
+                ", author='" + author + '\'' +
+                ", text='" + text + '\'' +
+                ", article=" + article +
+                '}';
+    }
 }
